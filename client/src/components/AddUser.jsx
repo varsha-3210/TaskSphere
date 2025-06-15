@@ -84,17 +84,19 @@ const AddUser = ({ open, setOpen, userData }) => {
               })}
               error={errors.title ? errors.title.message : ""}
             />
-            <Textbox
-              placeholder='Email Address'
-              type='email'
-              name='email'
-              label='Email Address'
-              className='w-full rounded'
-              register={register("email", {
-                required: "Email Address is required!",
-              })}
-              error={errors.email ? errors.email.message : ""}
-            />
+            {!userData && (
+              <Textbox
+                placeholder='Email Address'
+                type='email'
+                name='email'
+                label='Email Address'
+                className='w-full rounded'
+                register={register("email", {
+                  required: "Email Address is required!",
+                })}
+                error={errors.email ? errors.email.message : ""}
+              />
+            )}
 
             <Textbox
               placeholder='Role'
